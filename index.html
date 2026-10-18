@@ -12,15 +12,26 @@
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://tnp1354.org/">
 <style>
-  html{background:#0f1626}
+  html{background:#0b1120}
   html,body{margin:0;padding:0;height:100%;overflow:hidden}
+  .load{position:fixed;inset:0;z-index:0;display:grid;place-items:center;background:radial-gradient(ellipse at center,#1b2a4a 0%,#0b1120 75%);color:#e9dfc7;font:16px/1.5 system-ui,sans-serif;text-align:center;padding:16px}
+  .load svg{width:min(30vw,128px);height:auto;color:#d3a94f;filter:drop-shadow(0 0 14px rgba(211,169,79,.45));animation:glow 1.8s ease-in-out infinite}
+  @keyframes glow{0%,100%{opacity:.55}50%{opacity:1}}
+  .load .fail{margin-top:18px;display:none}
+  .load.failed .fail{display:block}
+  .load a{color:#d3a94f}
   iframe{position:fixed;inset:0;z-index:1;width:100%;height:100%;height:100dvh;border:0;display:block}
-  .fallback{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;color:#e9dfc7;font:16px/1.5 system-ui,sans-serif;text-align:center;padding:16px;z-index:0}
-  .fallback a{color:#d3a94f}
+  @media (prefers-reduced-motion:reduce){.load svg{animation:none;opacity:.9}}
 </style>
 </head>
 <body>
-<div class="fallback"><p>T. Neal Porter Lodge No. 1354<br><a href="https://script.google.com/macros/s/AKfycbz4Zt0DzxhymXmr_-amcR3LqxYixQGnmX4pGuoD-QQzoCNw1JrjfD9KrJjhmkJAq9uz/exec">Tap here to open the site</a></p></div>
+<div class="load" id="load"><div><svg viewBox="0 0 34 34" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M17 4 L7 27"/><path d="M17 4 L27 27"/><circle cx="17" cy="4.5" r="1.6" fill="currentColor"/><path d="M5 20 L17 30 L29 20"/></g></svg><p class="fail">T. Neal Porter Lodge No. 1354<br><a href="https://script.google.com/macros/s/AKfycbz4Zt0DzxhymXmr_-amcR3LqxYixQGnmX4pGuoD-QQzoCNw1JrjfD9KrJjhmkJAq9uz/exec">Tap here to open the site</a></p></div></div>
 <iframe src="https://script.google.com/macros/s/AKfycbz4Zt0DzxhymXmr_-amcR3LqxYixQGnmX4pGuoD-QQzoCNw1JrjfD9KrJjhmkJAq9uz/exec" title="T. Neal Porter Lodge No. 1354" allow="clipboard-write; fullscreen" allowfullscreen></iframe>
+<script>
+(function(){var f=document.querySelector("iframe"),l=document.getElementById("load"),ok=false;
+if(f)f.addEventListener("load",function(){ok=true;});
+setTimeout(function(){if(!ok||!document.body.contains(f))l.className+=" failed";},8000);
+setInterval(function(){if(!document.body.contains(f))l.className.indexOf("failed")<0&&(l.className+=" failed");},1000);})();
+</script>
 </body>
 </html>
